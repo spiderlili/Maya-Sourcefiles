@@ -1,0 +1,4 @@
+global proc testinOrder()
+{
+    print "Last folder\n";
+}
