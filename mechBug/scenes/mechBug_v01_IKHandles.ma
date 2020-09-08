@@ -1,6 +1,6 @@
 //Maya ASCII 2020 scene
 //Name: mechBug_v01_IKHandles.ma
-//Last modified: Sun, Sep 06, 2020 10:55:34 PM
+//Last modified: Tue, Sep 08, 2020 11:22:28 PM
 //Codeset: 936
 requires maya "2020";
 requires "stereoCamera" "10.0";
@@ -12,18 +12,18 @@ fileInfo "product" "Maya 2020";
 fileInfo "version" "2020";
 fileInfo "cutIdentifier" "202002251615-329d215872";
 fileInfo "osv" "Microsoft Windows 10 Technical Preview  (Build 18362)\n";
-fileInfo "UUID" "927E0095-4878-7CC8-7AF8-CA8C6BA85F97";
+fileInfo "UUID" "1391111C-4B3A-EBA6-69C0-E7B12800168D";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "C6CED7B9-448B-159F-CB1B-4889C8498F42";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 3.9360389697226923 7.3737090357709825 11.360137363335355 ;
-	setAttr ".r" -type "double3" -33.338352731227914 -339.39999999995388 -8.4945309567131004e-16 ;
+	setAttr ".t" -type "double3" 5.1711855609503639 2.4896049469803478 5.207831566101282 ;
+	setAttr ".r" -type "double3" -32.738352731252306 -349.39999999984957 -4.0447150011149368e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "95554D2C-4E7E-F76C-216C-CBAD86E9365E";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 12.565445608650332;
+	setAttr ".coi" 12.565445608649586;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -99,17 +99,15 @@ createNode transform -n "mechanicalBug";
 	rename -uid "94087123-4F35-FB5F-45A8-C987FD9040FA";
 createNode transform -n "legsControlGroup" -p "mechanicalBug";
 	rename -uid "DFAB817F-4A70-BE31-11A9-E7A0ABD5DF50";
-	setAttr ".rp" -type "double3" 0 -2.1723026037216187 -0.70552998036146153 ;
-	setAttr ".sp" -type "double3" 0 -2.1723026037216187 -0.70552998036146153 ;
+	setAttr ".rp" -type "double3" 0 -1.0888274908065796 -0.70454683076352997 ;
+	setAttr ".sp" -type "double3" 0 -1.0888274908065796 -0.70454683076352997 ;
 createNode transform -n "frontLeftFootCtrl" -p "legsControlGroup";
-	rename -uid "FD5609D5-4873-0696-2F8E-D78897B5DB4A";
-	setAttr ".rp" -type "double3" 2.6544506549835205 -2.1786868572235107 -0.18750940263271332 ;
-	setAttr ".sp" -type "double3" 2.6544506549835205 -2.1786868572235107 -0.18750940263271332 ;
+	rename -uid "727F167B-4634-2014-E8AE-7B8F178B0810";
+	setAttr ".rp" -type "double3" 2.6617097873816165 -2.1581004409995255 -0.18554310343685029 ;
+	setAttr ".sp" -type "double3" 2.6617097873816165 -2.1581004409995255 -0.18554310343685029 ;
 createNode nurbsCurve -n "frontLeftFootCtrlShape" -p "frontLeftFootCtrl";
-	rename -uid "75DF6204-4589-B082-35A6-4CAC98D71E5F";
+	rename -uid "2D35C78E-4E9C-A717-2158-19A9973124EE";
 	setAttr -k off ".v";
-	setAttr ".ove" yes;
-	setAttr ".ovc" 31;
 	setAttr ".tw" yes;
 createNode transform -n "midLeftLegCtrl" -p "legsControlGroup";
 	rename -uid "08528B5C-4450-15A9-5E7B-58BF00DBB573";
@@ -251,11 +249,13 @@ createNode parentConstraint -n "legsControlGroup_parentConstraint1" -p "legsCont
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0 0 -2.2204460492503131e-16 ;
+	setAttr ".rst" -type "double3" 0 -0.12145021513128995 -0.00098314959793177614 ;
 	setAttr -k on ".w0";
 createNode transform -n "legsCtrl" -p "mechanicalBug";
 	rename -uid "19C20728-49AB-530C-C4A3-02B0DD4D1D23";
-	setAttr ".rp" -type "double3" 0 -2.1723026037216187 -0.70552998036146153 ;
-	setAttr ".sp" -type "double3" 0 -2.1723026037216187 -0.70552998036146153 ;
+	setAttr ".rp" -type "double3" 0 -1.2102777059378695 -0.70552998036146153 ;
+	setAttr ".sp" -type "double3" 0 -1.2102777059378695 -0.70552998036146153 ;
 createNode nurbsCurve -n "legsCtrlShape" -p "legsCtrl";
 	rename -uid "EAE49F44-4161-892C-2E73-A2846A8C1021";
 	setAttr -k off ".v";
@@ -267,26 +267,10 @@ createNode transform -n "feetIKHandles" -p "mechanicalBug";
 createNode ikHandle -n "ikHandle1" -p "feetIKHandles";
 	rename -uid "47D116C6-4EC9-CB8C-9A1C-59B5CF31F7FF";
 	setAttr ".v" no;
+	setAttr ".t" -type "double3" 2.6544506549835205 -2.1786868572235107 -0.18750940263271332 ;
 	setAttr ".hsh" no;
 	setAttr ".hs" 1;
 	setAttr ".roc" yes;
-createNode pointConstraint -n "ikHandle1_pointConstraint1" -p "ikHandle1";
-	rename -uid "EA27941E-457C-DE55-11FF-66A49464F825";
-	addAttr -ci true -k true -sn "w0" -ln "frontLeftFootCtrlW0" -dv 1 -min 0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr ".rst" -type "double3" 2.6544506549835205 -2.1786868572235107 -0.18750940263271332 ;
-	setAttr -k on ".w0";
 createNode ikHandle -n "ikHandle2" -p "feetIKHandles";
 	rename -uid "C8C61523-4667-A679-F23A-0BA9F23F2FF8";
 	setAttr ".v" no;
@@ -409,13 +393,14 @@ createNode transform -n "legs" -p "bug";
 createNode joint -n "frontLeftLegJoint" -p "legs";
 	rename -uid "EBBA9CC1-40B7-C2F1-5FAD-0D9282316736";
 	setAttr ".t" -type "double3" 0.33928927646453111 -0.87866226325858099 -0.21786534566580873 ;
+	setAttr ".r" -type "double3" 0.12793149042109025 0.094353982259962291 -6.198900943069483 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".radi" 0.5;
 createNode joint -n "frontLeftFootJoint" -p "frontLeftLegJoint";
 	rename -uid "BFCE76FD-40F7-7707-6C85-92BC15428F3B";
 	setAttr ".t" -type "double3" 0.93140938938822926 0.25396875542268049 0.02545616394513911 ;
-	setAttr ".r" -type "double3" -1.0242845110118339e-15 -4.9702515258623216e-16 5.062813110276704e-14 ;
+	setAttr ".r" -type "double3" -0.10905220019301438 -0.0529866152184107 5.3923624538140844 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".radi" 0.5;
@@ -2917,6 +2902,10 @@ createNode ikEffector -n "effector1" -p "frontLeftFootJoint";
 	rename -uid "CD85055D-4704-7C6C-3527-0EAC6C975ECE";
 	setAttr ".v" no;
 	setAttr ".hd" yes;
+createNode ikEffector -n "effector7" -p "frontLeftFootJoint";
+	rename -uid "280CFBEE-4BE3-92AA-1FE9-539D187F1B7E";
+	setAttr ".v" no;
+	setAttr ".hd" yes;
 createNode transform -n "frontLeftLegBase" -p "frontLeftLegJoint";
 	rename -uid "8DA1C54C-49A7-CD4F-C266-3F857E80B2CD";
 	setAttr ".t" -type "double3" -0.33928927646453111 0.87866226325858099 0.21786534566580873 ;
@@ -3416,12 +3405,14 @@ createNode mesh -n "frontLeftLegShape" -p "frontLeftLeg";
 createNode joint -n "midLeftLegJoint" -p "legs";
 	rename -uid "FDF9CFA0-4166-A066-142D-758160E449B0";
 	setAttr ".t" -type "double3" 0.33928927646453111 -0.70267954567127178 -0.75856965970356782 ;
+	setAttr ".r" -type "double3" -0.034254254555139203 0.012065336296730735 -5.8857547896768727 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".radi" 0.5;
 createNode joint -n "midLeftFootJoint" -p "midLeftLegJoint";
 	rename -uid "9E75FA32-42F0-9AA4-9A4D-FF8F7C688B69";
 	setAttr ".t" -type "double3" 0.91798054237157989 0.3679028539523711 -0.0098303616061559129 ;
+	setAttr ".r" -type "double3" 0.037716115535424706 0.0017722331346844661 4.8695320240149034 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".radi" 0.5;
@@ -6575,12 +6566,14 @@ createNode mesh -n "midLeftLegShape" -p "midLeftLeg";
 createNode joint -n "rearLeftLegJoint" -p "legs";
 	rename -uid "096ED2B5-4A4C-7FCF-3766-3EB74973F2D1";
 	setAttr ".t" -type "double3" 0.32381864610535771 -0.48205061628692947 -1.2210290812613065 ;
+	setAttr ".r" -type "double3" -0.0090333703417885755 -0.0067241183726714842 -6.467613787399066 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".radi" 0.5;
 createNode joint -n "rearleftFootJoint" -p "rearLeftLegJoint";
 	rename -uid "9E1EC8EF-4BA4-2B50-2B4D-78BD21242BEC";
 	setAttr ".t" -type "double3" 1.0994582649971361 0.036781479601928679 -0.0048271125624730349 ;
+	setAttr ".r" -type "double3" 0.025337128012671462 0.02864875603820315 6.5624905753641949 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".radi" 0.5;
@@ -9734,12 +9727,14 @@ createNode mesh -n "rearLeftLegShape" -p "rearLeftLeg";
 createNode joint -n "rightFrontLegJoint" -p "legs";
 	rename -uid "586F44AD-4073-D22D-C83E-A19677D22FF7";
 	setAttr ".t" -type "double3" -0.33928927646453111 -0.87866226325858099 -0.2178653456658087 ;
+	setAttr ".r" -type "double3" 0.10836363707143719 -0.076359784906837799 6.1943650862610893 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".radi" 0.5;
 createNode joint -n "rightFrontFootJoint" -p "rightFrontLegJoint";
 	rename -uid "3B36B5C9-450E-ADA5-B722-6AA05CA2733D";
 	setAttr ".t" -type "double3" -0.93140938938822926 0.2539687554226806 0.025456163945139221 ;
+	setAttr ".r" -type "double3" -0.10627527231723857 0.066500941300983774 -5.3880841279588383 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".radi" 0.5;
@@ -12877,12 +12872,14 @@ createNode mesh -n "frontRightLegShape" -p "frontRightLeg";
 createNode joint -n "midRightLegJoint" -p "legs";
 	rename -uid "0656654F-407C-D5DB-1ACE-9E8A2453C7D3";
 	setAttr ".t" -type "double3" -0.33928927646453111 -0.70267954567127178 -0.75856965970356782 ;
+	setAttr ".r" -type "double3" -0.032048344323688555 -0.0079062340807883932 5.8845471629029618 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".radi" 0.5;
 createNode joint -n "midRightFootJoint" -p "midRightLegJoint";
 	rename -uid "D919F7AB-4627-AFE8-169D-B68339ACFCE7";
 	setAttr ".t" -type "double3" -0.91798054237157933 0.36790285395237182 -0.0098303616061561367 ;
+	setAttr ".r" -type "double3" 0.037469540955992732 -0.007255193976317696 -4.8684075920156324 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".radi" 0.5;
@@ -16080,12 +16077,14 @@ createNode mesh -n "midRightLegShape" -p "midRightLeg";
 createNode joint -n "rearRightLegJoint" -p "legs";
 	rename -uid "A781C779-4991-7668-648B-FB98AEA88969";
 	setAttr ".t" -type "double3" -0.32381864610535771 -0.48205061628692947 -1.2210290812613065 ;
+	setAttr ".r" -type "double3" -0.0090324944873046327 0.0067252061942367708 6.4676137647369805 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".radi" 0.5;
 createNode joint -n "rearRightFootJoint" -p "rearRightLegJoint";
 	rename -uid "837F21C0-4FF2-71B7-D9EC-E58269BEA448";
 	setAttr ".t" -type "double3" -1.0994582649971365 0.036781479601928069 -0.0048271125624732569 ;
+	setAttr ".r" -type "double3" 0.025336683236510768 -0.028650381384457406 -6.5624905349560194 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".radi" 0.5;
@@ -19752,7 +19751,7 @@ createNode nurbsSurface -n "mainBodytrimmedSurfaceShape" -p "mainBody";
 		1
 		
 		3 9 1 no 3
-		14 -0 -0 -0 0.37822323402587554 0.37822323402587554 0.7483658027496487 0.7483658027496487
+		14 0 0 0 0.37822323402587554 0.37822323402587554 0.7483658027496487 0.7483658027496487
 		 0.93590441256421553 0.93590441256421553 1.1183095682048076 1.1183095682048076 1.5015594552095786
 		 1.5015594552095786 1.5015594552095786
 		12
@@ -19879,7 +19878,7 @@ createNode nurbsSurface -n "mainBodytrimmedSurfaceShape" -p "mainBody";
 		1
 		
 		3 7 1 no 3
-		12 -0 -0 -0 0.38731986741608337 0.38731986741608337 0.77450055210293856 0.77450055210293856
+		12 0 0 0 0.38731986741608337 0.38731986741608337 0.77450055210293856 0.77450055210293856
 		 1.1645488995739051 1.1645488995739051 1.5538351201326792 1.5538351201326792 1.5538351201326792
 		
 		10
@@ -19981,7 +19980,7 @@ createNode nurbsSurface -n "mainBodytrimmedSurfaceShape" -p "mainBody";
 		1
 		
 		3 11 1 no 3
-		16 -0 -0 -0 0.18492340158878506 0.18492340158878506 0.37269617771478747 0.37269617771478747
+		16 0 0 0 0.18492340158878506 0.18492340158878506 0.37269617771478747 0.37269617771478747
 		 0.5626918756659065 0.5626918756659065 0.74683784977863787 0.74683784977863787 1.1437382484004117
 		 1.1437382484004117 1.5408313845982706 1.5408313845982706 1.5408313845982706
 		14
@@ -20239,7 +20238,7 @@ createNode nurbsSurface -n "frontRightLegHoletrimmedSurfaceShape" -p "frontRight
 		1
 		
 		3 11 1 no 3
-		16 -0 -0 -0 0.18714959070024673 0.18714959070024673 0.37273526059589002 0.37273526059589002
+		16 0 0 0 0.18714959070024673 0.18714959070024673 0.37273526059589002 0.37273526059589002
 		 0.55884370467975786 0.55884370467975786 0.74606053420563501 0.74606053420563501 1.143280331595057
 		 1.143280331595057 1.5408313845982708 1.5408313845982708 1.5408313845982708
 		14
@@ -20477,7 +20476,7 @@ createNode nurbsSurface -n "midRightLegHoletrimmedSurfaceShape" -p "midRightLegH
 		1
 		
 		3 7 1 no 3
-		12 -0 -0 -0 0.38743517476800182 0.38743517476800182 0.77399559462853795 0.77399559462853795
+		12 0 0 0 0.38743517476800182 0.38743517476800182 0.77399559462853795 0.77399559462853795
 		 1.1661015831285058 1.1661015831285058 1.553835120132679 1.553835120132679 1.553835120132679
 		
 		10
@@ -20710,7 +20709,7 @@ createNode nurbsSurface -n "rearRightLegHoletrimmedSurfaceShape" -p "rearRightLe
 		1
 		
 		3 9 1 no 3
-		14 -0 -0 -0 0.38029268099661806 0.38029268099661806 0.75078192572343172 0.75078192572343172
+		14 0 0 0 0.38029268099661806 0.38029268099661806 0.75078192572343172 0.75078192572343172
 		 0.93663234561185427 0.93663234561185427 1.1185626401857576 1.1185626401857576 1.5015594552095788
 		 1.5015594552095788 1.5015594552095788
 		12
@@ -20968,7 +20967,7 @@ createNode nurbsSurface -n "frontLeftLegHoletrimmedSurfaceShape" -p "frontLeftLe
 		1
 		
 		3 11 1 no 3
-		16 -0 -0 -0 0.18714959070024739 0.18714959070024739 0.37273526059589024 0.37273526059589024
+		16 0 0 0 0.18714959070024739 0.18714959070024739 0.37273526059589024 0.37273526059589024
 		 0.55884370467975764 0.55884370467975764 0.74606053420563634 0.74606053420563634 1.1432803315950588
 		 1.1432803315950588 1.5408313845982706 1.5408313845982706 1.5408313845982706
 		14
@@ -21207,7 +21206,7 @@ createNode nurbsSurface -n "midLeftLegHoletrimmedSurfaceShape" -p "midLeftLegHol
 		1
 		
 		3 7 1 no 3
-		12 -0 -0 -0 0.38743517481506107 0.38743517481506107 0.77399559437134802 0.77399559437134802
+		12 0 0 0 0.38743517481506107 0.38743517481506107 0.77399559437134802 0.77399559437134802
 		 1.1661015829189416 1.1661015829189416 1.5538351201326792 1.5538351201326792 1.5538351201326792
 		
 		10
@@ -21439,7 +21438,7 @@ createNode nurbsSurface -n "rearLeftLegHoletrimmedSurfaceShape" -p "rearLeftLegH
 		1
 		
 		3 9 1 no 3
-		14 -0 -0 -0 0.380292680764724 0.380292680764724 0.75078192526562049 0.75078192526562049
+		14 0 0 0 0.380292680764724 0.380292680764724 0.75078192526562049 0.75078192526562049
 		 0.93663234504071735 0.93663234504071735 1.1185626395036761 1.1185626395036761 1.5015594552095786
 		 1.5015594552095786 1.5015594552095786
 		12
@@ -22226,7 +22225,7 @@ createNode nurbsSurface -n "rightWingShape" -p "rightWing";
 		1
 		
 		3 11 0 no 3
-		16 -0 -0 -0 0.81197225580624055 0.81197225580624055 1.3840464512630746 1.3840464512630746
+		16 0 0 0 0.81197225580624055 0.81197225580624055 1.3840464512630746 1.3840464512630746
 		 1.7904902111482728 1.7904902111482728 2.1026322268748139 2.1026322268748139 2.839640101992317
 		 2.839640101992317 3.9811490600640966 3.9811490600640966 3.9811490600640966
 		14
@@ -22972,7 +22971,7 @@ createNode nurbsSurface -n "leftWingShape" -p "leftWing";
 		1
 		
 		3 11 0 no 3
-		16 -0 -0 -0 0.81197225580624055 0.81197225580624055 1.3840464512630746 1.3840464512630746
+		16 0 0 0 0.81197225580624055 0.81197225580624055 1.3840464512630746 1.3840464512630746
 		 1.7904902111482728 1.7904902111482728 2.1026322268748139 2.1026322268748139 2.839640101992317
 		 2.839640101992317 3.9811490600640966 3.9811490600640966 3.9811490600640966
 		14
@@ -23699,7 +23698,7 @@ createNode nurbsSurface -n "facetrimmedSurfaceShape1" -p "|mechanicalBug|bug|bug
 		1
 		
 		3 7 1 no 3
-		12 -0 -0 -0 0.24854105327639664 0.24854105327639664 0.4984904451407996 0.4984904451407996
+		12 0 0 0 0.24854105327639664 0.24854105327639664 0.4984904451407996 0.4984904451407996
 		 0.74594167098124753 0.74594167098124753 0.99266822099300811 0.99266822099300811 0.99266822099300811
 		
 		10
@@ -24067,7 +24066,7 @@ createNode nurbsSurface -n "leftAntennaHoletrimmedSurfaceShape" -p "leftAntennaH
 		1
 		
 		3 4 0 no 3
-		9 -0 -0 -0 1.0000000000000002 2.0000000000000004 3.0000000000000004 3.682176280870189
+		9 0 0 0 1.0000000000000002 2.0000000000000004 3.0000000000000004 3.682176280870189
 		 3.682176280870189 3.682176280870189
 		7
 		0.14070427612916814 0.38659930327309422 1.0139665552484542
@@ -24118,7 +24117,7 @@ createNode nurbsSurface -n "leftAntennaHoletrimmedSurfaceShape" -p "leftAntennaH
 		1
 		
 		3 7 1 no 3
-		12 -0 -0 -0 0.10138312168625468 0.10138312168625468 0.20112545442609972 0.20112545442609972
+		12 0 0 0 0.10138312168625468 0.10138312168625468 0.20112545442609972 0.20112545442609972
 		 0.30083286459373426 0.30083286459373426 0.40164320314690283 0.40164320314690283 0.40164320314690283
 		
 		10
@@ -24319,7 +24318,7 @@ createNode nurbsSurface -n "rightAntennaHoletrimmedSurfaceShape" -p "rightAntenn
 		1
 		
 		3 4 0 no 3
-		9 -0 -0 -0 0.99999999999999989 1.9999999999999998 3 3.6821762808701841 3.6821762808701841
+		9 0 0 0 0.99999999999999989 1.9999999999999998 3 3.6821762808701841 3.6821762808701841
 		 3.6821762808701841
 		7
 		-0.14070427612916814 0.38659930327309422 1.0139665552484542
@@ -24370,7 +24369,7 @@ createNode nurbsSurface -n "rightAntennaHoletrimmedSurfaceShape" -p "rightAntenn
 		1
 		
 		3 7 1 no 3
-		12 -0 -0 -0 0.10138312173147801 0.10138312173147801 0.20112545484126981 0.20112545484126981
+		12 0 0 0 0.10138312173147801 0.10138312173147801 0.20112545484126981 0.20112545484126981
 		 0.3008328645487785 0.3008328645487785 0.4016432031467444 0.4016432031467444 0.4016432031467444
 		
 		10
@@ -30796,6 +30795,9 @@ createNode parentConstraint -n "bug_parentConstraint1" -p "bug";
 	setAttr -k on ".w0";
 createNode transform -n "antennaGroupCtrl" -p "bug";
 	rename -uid "44E2BC60-41EB-2AB4-BF36-10B52B79A0BB";
+	setAttr ".t" -type "double3" 0 -1.2603271264560927 0 ;
+	setAttr ".rp" -type "double3" 0 -6.1629758220391547e-33 2.9766213232923509 ;
+	setAttr ".sp" -type "double3" 0 -6.1629758220391547e-33 2.9766213232923509 ;
 createNode nurbsCurve -n "antennaGroupCtrlShape" -p "antennaGroupCtrl";
 	rename -uid "A204F2E8-4D24-5B28-5EF1-99B74D04D522";
 	setAttr -k off ".v";
@@ -30846,19 +30848,43 @@ createNode nurbsCurve -n "bodyCtrlShape" -p "bodyCtrl";
 		-1.0499999999999998 2.0092894777729149 -0.35000000000000003
 		-0.34999999999999998 2.0092894777729149 -0.35000000000000003
 		;
+createNode ikHandle -n "ikHandle7";
+	rename -uid "EA2CB326-43A0-F1E1-8CE3-568F59A86B83";
+	setAttr ".hsh" no;
+	setAttr ".hs" 1;
+	setAttr ".roc" yes;
+createNode pointConstraint -n "ikHandle7_pointConstraint1" -p "ikHandle7";
+	rename -uid "6455E278-48AC-08CF-C0E2-B4A97B18D4CD";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "frontLeftFootCtrlW0" -dv 1 -min 0 
+		-at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".o" -type "double3" -0.0072591323980959466 -0.020586416223984827 -0.0033858213843635243 ;
+	setAttr ".rst" -type "double3" 2.6544506549835205 -2.1786868572235103 -0.18750940263271332 ;
+	setAttr -k on ".w0";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "E87F9410-4026-4435-1589-87A4538839EC";
+	rename -uid "F3E8EC68-48DA-06BE-F871-7CAD62CE20F2";
 	setAttr -s 6 ".lnk";
 	setAttr -s 6 ".slnk";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "D18819F3-4984-12B9-8438-4DA862A0033F";
+	rename -uid "B57A3490-4DCB-5BB1-32A7-6D9D833D7ABB";
 	setAttr ".cdl" 2;
 	setAttr -s 5 ".dli[1:4]"  1 2 3 4;
 	setAttr -s 5 ".dli";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "4EE015EE-476F-4A9E-5A8F-DA999C8F177C";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "E7FBDD1B-4C69-04DA-68BE-ABB75A650A4B";
+	rename -uid "5DE02C47-49B1-A937-C81C-349983690D0E";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "6FBC2A88-49EB-84F3-86F3-22937DD21754";
 	setAttr ".g" yes;
@@ -30990,14 +31016,6 @@ createNode displayLayer -n "LEGS";
 	setAttr ".do" 3;
 createNode ikSCsolver -n "ikSCsolver";
 	rename -uid "5B262385-43D7-2DEB-18D3-23AF5EA7FB27";
-createNode makeNurbCircle -n "makeNurbCircle1";
-	rename -uid "7934C296-4175-4E28-2BD4-11A9359CA65D";
-	setAttr ".nr" -type "double3" 0 1 0 ;
-	setAttr ".tol" 1e-05;
-createNode transformGeometry -n "transformGeometry2";
-	rename -uid "1120E291-47B2-403E-6EF7-2CBB4E56C4E0";
-	setAttr ".txf" -type "matrix" 0.40000000000000002 0 0 0 0 0.40000000000000002 0 0
-		 0 0 0.40000000000000002 0 2.6544506549835205 -2.1786868572235107 -0.18750940263271332 1;
 createNode makeNurbCircle -n "makeNurbCircle2";
 	rename -uid "318E9F38-44BC-D3E9-A016-8C9F46C1AF67";
 	setAttr ".nr" -type "double3" 0 1 0 ;
@@ -31017,9 +31035,20 @@ createNode transformGeometry -n "transformGeometry4";
 	setAttr ".txf" -type "matrix" 0.14741129821027596 0 0 0 0 0.14741129821027596 0 0
 		 0 0 0.14741129821027596 0 0 0 0 1;
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "24DC5D35-407E-DD34-CF9B-6A8E0098E1C2";
+	rename -uid "5E73D294-422F-86BE-AD87-40898CD0A721";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "92A875BD-433B-070E-89D9-0488DCECC5A3";
+	rename -uid "3E7C33DF-467F-0F5C-6CF1-9FB3C6E05A71";
+createNode makeNurbCircle -n "frontLeftFootCtrl1";
+	rename -uid "E81C99B3-4EEA-93BB-7C60-4A9FF39A7E76";
+	setAttr ".nr" -type "double3" 0 1 0 ;
+	setAttr ".r" 0.4;
+	setAttr ".tol" 0.0001;
+createNode transformGeometry -n "transformGeometry5";
+	rename -uid "1B5C3809-4C54-4E2C-9A1D-E899C18706F1";
+	setAttr ".txf" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 2.6617097873816165 -2.1581004409995255 -0.18554310343685029 1;
+createNode transformGeometry -n "transformGeometry6";
+	rename -uid "63D5E34D-455A-81C9-1CCF-F896FEE7E315";
+	setAttr ".txf" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0.96202489778374911 0 1;
 select -ne :time1;
 	setAttr -k on ".cch";
 	setAttr -k on ".nds";
@@ -31074,6 +31103,7 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
 select -ne :ikSystem;
+	setAttr -s 4 ".sol";
 connectAttr "ground.di" "|groundPlane.do";
 connectAttr "transformGeometry1.og" "groundPlaneShape.i";
 connectAttr "legsControlGroup_parentConstraint1.ctx" "legsControlGroup.tx";
@@ -31082,8 +31112,7 @@ connectAttr "legsControlGroup_parentConstraint1.ctz" "legsControlGroup.tz";
 connectAttr "legsControlGroup_parentConstraint1.crx" "legsControlGroup.rx";
 connectAttr "legsControlGroup_parentConstraint1.cry" "legsControlGroup.ry";
 connectAttr "legsControlGroup_parentConstraint1.crz" "legsControlGroup.rz";
-connectAttr "CONTROLS.di" "frontLeftFootCtrl.do";
-connectAttr "transformGeometry2.og" "frontLeftFootCtrlShape.cr";
+connectAttr "transformGeometry5.og" "frontLeftFootCtrlShape.cr";
 connectAttr "CONTROLS.di" "midLeftLegCtrl.do";
 connectAttr "CONTROLS.di" "rearLeftLegCtrl.do";
 connectAttr "CONTROLS.di" "frontRightLegCtrl.do";
@@ -31103,22 +31132,10 @@ connectAttr "legsCtrl.pm" "legsControlGroup_parentConstraint1.tg[0].tpm";
 connectAttr "legsControlGroup_parentConstraint1.w0" "legsControlGroup_parentConstraint1.tg[0].tw"
 		;
 connectAttr "CONTROLS.di" "legsCtrl.do";
-connectAttr "transformGeometry3.og" "legsCtrlShape.cr";
+connectAttr "transformGeometry6.og" "legsCtrlShape.cr";
 connectAttr "frontLeftLegJoint.msg" "ikHandle1.hsj";
 connectAttr "effector1.hp" "ikHandle1.hee";
 connectAttr "ikSCsolver.msg" "ikHandle1.hsv";
-connectAttr "ikHandle1_pointConstraint1.ctx" "ikHandle1.tx";
-connectAttr "ikHandle1_pointConstraint1.cty" "ikHandle1.ty";
-connectAttr "ikHandle1_pointConstraint1.ctz" "ikHandle1.tz";
-connectAttr "ikHandle1.pim" "ikHandle1_pointConstraint1.cpim";
-connectAttr "ikHandle1.rp" "ikHandle1_pointConstraint1.crp";
-connectAttr "ikHandle1.rpt" "ikHandle1_pointConstraint1.crt";
-connectAttr "frontLeftFootCtrl.t" "ikHandle1_pointConstraint1.tg[0].tt";
-connectAttr "frontLeftFootCtrl.rp" "ikHandle1_pointConstraint1.tg[0].trp";
-connectAttr "frontLeftFootCtrl.rpt" "ikHandle1_pointConstraint1.tg[0].trt";
-connectAttr "frontLeftFootCtrl.pm" "ikHandle1_pointConstraint1.tg[0].tpm";
-connectAttr "ikHandle1_pointConstraint1.w0" "ikHandle1_pointConstraint1.tg[0].tw"
-		;
 connectAttr "midLeftLegJoint.msg" "ikHandle2.hsj";
 connectAttr "effector2.hp" "ikHandle2.hee";
 connectAttr "ikSCsolver.msg" "ikHandle2.hsv";
@@ -31206,6 +31223,10 @@ connectAttr "frontLeftFootJoint.s" "frontLeftEndJoint.is";
 connectAttr "frontLeftEndJoint.tx" "effector1.tx";
 connectAttr "frontLeftEndJoint.ty" "effector1.ty";
 connectAttr "frontLeftEndJoint.tz" "effector1.tz";
+connectAttr "frontLeftEndJoint.tx" "effector7.tx";
+connectAttr "frontLeftEndJoint.ty" "effector7.ty";
+connectAttr "frontLeftEndJoint.tz" "effector7.tz";
+connectAttr "frontLeftEndJoint.opm" "effector7.opm";
 connectAttr "midLeftLegJoint.s" "midLeftFootJoint.is";
 connectAttr "midLeftFootJoint.s" "midLeftEndJoint.is";
 connectAttr "midLeftEndJoint.tx" "effector2.tx";
@@ -31288,6 +31309,21 @@ connectAttr "bug_parentConstraint1.w0" "bug_parentConstraint1.tg[0].tw";
 connectAttr "CONTROLS.di" "antennaGroupCtrl.do";
 connectAttr "transformGeometry4.og" "antennaGroupCtrlShape.cr";
 connectAttr "CONTROLS.di" "bodyCtrl.do";
+connectAttr "frontLeftLegJoint.msg" "ikHandle7.hsj";
+connectAttr "effector7.hp" "ikHandle7.hee";
+connectAttr "ikSCsolver.msg" "ikHandle7.hsv";
+connectAttr "ikHandle7_pointConstraint1.ctx" "ikHandle7.tx";
+connectAttr "ikHandle7_pointConstraint1.cty" "ikHandle7.ty";
+connectAttr "ikHandle7_pointConstraint1.ctz" "ikHandle7.tz";
+connectAttr "ikHandle7.pim" "ikHandle7_pointConstraint1.cpim";
+connectAttr "ikHandle7.rp" "ikHandle7_pointConstraint1.crp";
+connectAttr "ikHandle7.rpt" "ikHandle7_pointConstraint1.crt";
+connectAttr "frontLeftFootCtrl.t" "ikHandle7_pointConstraint1.tg[0].tt";
+connectAttr "frontLeftFootCtrl.rp" "ikHandle7_pointConstraint1.tg[0].trp";
+connectAttr "frontLeftFootCtrl.rpt" "ikHandle7_pointConstraint1.tg[0].trt";
+connectAttr "frontLeftFootCtrl.pm" "ikHandle7_pointConstraint1.tg[0].tpm";
+connectAttr "ikHandle7_pointConstraint1.w0" "ikHandle7_pointConstraint1.tg[0].tw"
+		;
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "blinn1SG.message" ":defaultLightSet.message";
@@ -31371,10 +31407,11 @@ connectAttr "polyPlane1.out" "transformGeometry1.ig";
 connectAttr "layerManager.dli[1]" "ground.id";
 connectAttr "layerManager.dli[2]" "BODY.id";
 connectAttr "layerManager.dli[3]" "LEGS.id";
-connectAttr "makeNurbCircle1.oc" "transformGeometry2.ig";
 connectAttr "makeNurbCircle2.oc" "transformGeometry3.ig";
 connectAttr "layerManager.dli[4]" "CONTROLS.id";
 connectAttr "makeNurbCircle3.oc" "transformGeometry4.ig";
+connectAttr "frontLeftFootCtrl1.oc" "transformGeometry5.ig";
+connectAttr "transformGeometry3.og" "transformGeometry6.ig";
 connectAttr "blinn1SG.pa" ":renderPartition.st" -na;
 connectAttr "mia_material_x1SG.pa" ":renderPartition.st" -na;
 connectAttr "phong1SG.pa" ":renderPartition.st" -na;
