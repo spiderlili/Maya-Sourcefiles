@@ -1,6 +1,6 @@
 //Maya ASCII 2020 scene
 //Name: isometricJapaneseRoom.ma
-//Last modified: Thu, Oct 01, 2020 08:33:29 AM
+//Last modified: Thu, Oct 01, 2020 10:10:25 AM
 //Codeset: 936
 requires maya "2020";
 requires "stereoCamera" "10.0";
@@ -10,18 +10,18 @@ fileInfo "product" "Maya 2020";
 fileInfo "version" "2020";
 fileInfo "cutIdentifier" "202002251615-329d215872";
 fileInfo "osv" "Microsoft Windows 10 Technical Preview  (Build 18362)\n";
-fileInfo "UUID" "683E18C7-49D1-6769-7285-10A9FD62FC13";
+fileInfo "UUID" "FFADC703-4B96-4D2D-C126-52AE9C17886C";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "5FF11277-4988-2D85-E5AD-FCAE2A70DE77";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 75.633453396586873 30.619785214258926 74.105750504221191 ;
-	setAttr ".r" -type "double3" -12.938352729609568 44.599999999992782 -1.1167269439688936e-15 ;
+	setAttr ".t" -type "double3" 56.667500775681731 84.914667787993835 50.202898801287169 ;
+	setAttr ".r" -type "double3" -45.338352729684118 47.000000000003631 4.6635811282189388e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "055F5C86-4590-383F-C310-7A90D9780544";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 111.40437416523632;
+	setAttr ".coi" 111.4043741651754;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
